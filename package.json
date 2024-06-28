@@ -1,8 +1,10 @@
 {
   "name": "decorip",
   "displayName": "DecorIP",
-  "description": "Decorate IP",
+  "description": "Decorates IP addresses with additional information such as country and ASN (Autonomous System Number)",
+  "icon": "assets/DecorIP.png",
   "version": "0.0.1",
+  "publisher": "andysvints",
   "engines": {
     "vscode": "^1.90.0"
   },
