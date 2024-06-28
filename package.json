@@ -28,7 +28,13 @@
           "type": "string",
           "default": "📍",
           "description": "Icon to show next to IP addresses."
-        }
+        },
+        "DecorIP.showDecorationText": {
+          "type": "boolean",
+          "default": true,
+          "title": "Show IP Decoration Text",
+          "description": "Show decoration text in the editor next to IP addresses."
+      }
       }
     },
     "commands": [

@@ -5,7 +5,6 @@ import * as maxmind from 'maxmind';
 import * as path from 'path';
 
 let reader: maxmind.Reader<any>;
-let isDecorationEnabled = true;
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -33,7 +32,8 @@ export async function activate(context: vscode.ExtensionContext) {
         if (!activeEditor) {return;}
         const showIcon = vscode.workspace.getConfiguration('DecorIP').get('showIcon');
         const icon = vscode.workspace.getConfiguration('DecorIP').get('icon');
-        
+        const decorationEnabled=vscode.workspace.getConfiguration('DecorIP').get('showDecorationText');
+       
         const text = activeEditor.document.getText();
         const matches = [];
         let match;
@@ -60,18 +60,21 @@ export async function activate(context: vscode.ExtensionContext) {
                 hoverMessage: hoverMessage,
                 renderOptions:{}
             };
-            if (showIcon) {
-                decoration.renderOptions= {
-                    after: {
-                        contentText: `${icon}${country}; ${asn}`
-                    }
-                };  
-            }else{
-                decoration.renderOptions= {
-                    after: {
-                        contentText: `${country}; ${asn}`
-                    }
-                };
+            if(decorationEnabled){
+                if (showIcon) {
+                    decoration.renderOptions= {
+                        after: {
+                            contentText: `${icon}${country}; ${asn}`
+                        }
+                    };  
+                }else{
+                    decoration.renderOptions= {
+                        after: {
+                            contentText: `${country}; ${asn}`
+                        }
+                    };
+                }
+            
             }
             matches.push(decoration);
         }
