@@ -16,6 +16,17 @@
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
+  "keywords": [
+    "IP",
+    "IP Address",
+    "IP Decorator",
+    "Public IP",
+    "IPv4",
+    "IPv6",
+    "Geolocation",
+    "Logs",
+    "Network"
+  ],
   "contributes": {
     "configuration": {
       "type": "object",
